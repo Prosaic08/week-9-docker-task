@@ -1,0 +1,7 @@
+FROM python:3.13-alpine
+WORKDIR /app
+
+# Copy in the source code
+COPY send.py ./
+
+CMD ["tail", "-f", "/dev/null"]

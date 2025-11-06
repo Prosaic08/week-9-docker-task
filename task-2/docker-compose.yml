@@ -1,3 +1,21 @@
 # ###########################################################
 # Do make changes here.
+services:
+  listen:
+    build:
+      context: .
+      dockerfile: listen-Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - message
+  send:
+    build:
+      context: .
+      dockerfile: send-Dockerfile
+    container_name: "send"
+    networks:
+      - message
+networks:
+  message:
 

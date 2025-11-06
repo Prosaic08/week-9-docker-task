@@ -1,0 +1,13 @@
+FROM python:3.13-alpine
+WORKDIR /usr/local/app
+
+# Copy in the source code
+COPY listen.py ./
+
+RUN addgroup -S botgroup && adduser -S bot -G botgroup
+
+RUN chown -R bot:botgroup /usr/local/app
+
+USER bot
+
+CMD ["python", "-u", "listen.py"]
